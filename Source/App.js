@@ -68,8 +68,6 @@
         viewer.scene.camera.flyTo(homeCameraView);
     });
 
-    //addMultipleBillboards(viewer);
-
     document.getElementById('file').onchange = function(){
         var file = this.files[0];      
         var reader = new FileReader();
@@ -85,7 +83,7 @@
             // 以下几个参数需要根据具体数据进行修改，或者自行统计
             // 本示例使用的是Jet color算法，根据指定的最值计算颜色值，也可以引用JS库Colormap使用合适的色带或者自定义色带
             var min = 40; // 以40.txt文件为例
-            var max = 60;
+            var max = 55;
             var alpha = 0.6;
 
             viewer.entities.add({
@@ -126,35 +124,4 @@ function getJetColor(v, vmin, vmax, alpha) {
     else {
         return new Cesium.Color(1, 1 + 4 * (vmin + 0.75 * dv - v) / dv, 0, alpha);
     }
-}
-
-function addMultipleBillboards(viewer) {
-    var iconUrl = './Source/Images/white_3px.png';
-    viewer.entities.add({
-        position : Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883, 5000),
-        billboard : {
-            image : iconUrl,
-            width: 10,
-            height: 10,
-            color: Cesium.Color.RED.withAlpha(0.5)
-        }
-    });
-    viewer.entities.add({
-        position : Cesium.Cartesian3.fromDegrees(-80.50, 35.14, 5000),
-        billboard : {
-            image : iconUrl,
-            width: 10,
-            height: 10,
-            color: Cesium.Color.GREEN.withAlpha(0.5)
-        }
-    });
-    viewer.entities.add({
-        position : Cesium.Cartesian3.fromDegrees(-80.12, 25.46, 5000),
-        billboard : {
-            image : iconUrl,
-            width: 10,
-            height: 10,
-            color: Cesium.Color.BLUE.withAlpha(0.5)
-        }
-    });
 }
