@@ -11,7 +11,8 @@
     var viewer = new Cesium.Viewer('cesiumContainer', {
         scene3DOnly: true,
         selectionIndicator: false,
-        baseLayerPicker: false
+        baseLayerPicker: false,
+        animation: false
     });
 
     //////////////////////////////////////////////////////////////////////////
